@@ -26,7 +26,6 @@
 
         <activity
             android:name=".menu.MenuActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|mnc|colorMode|density|fontScale|fontWeightAdjustment|keyboard|layoutDirection|locale|mcc|navigation|smallestScreenSize|touchscreen|uiMode"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

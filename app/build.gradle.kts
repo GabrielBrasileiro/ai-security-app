@@ -71,7 +71,12 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.viewmodel)
-    implementation(libs.androidx.ui.tooling)
+
+    // Compose Debug
+    debugImplementation(libs.androidx.ui.tooling)
+
+    // Release Safe
+    releaseImplementation(libs.androidx.ui.tooling.preview)
 
     testImplementation(libs.junit)
 

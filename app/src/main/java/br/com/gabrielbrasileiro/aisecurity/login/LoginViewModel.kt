@@ -15,17 +15,14 @@ internal class LoginViewModel(
     private val _signAction = MutableSharedFlow<LoginAction>()
     val signAction: SharedFlow<LoginAction> = _signAction.asSharedFlow()
 
-    fun sign(email: String?, password: String?) = viewModelScope.launch {
+    fun sign(email: String?, password: String?) {
         val isValid = validateCredentialsUseCase.isValid(
             email = email.orEmpty().trim(),
             password = password.orEmpty().trim()
         )
+        val action = if (isValid) LoginAction.OpenMenu else LoginAction.ShowError
 
-        if (isValid) {
-            _signAction.emit(LoginAction.OpenMenu)
-        } else {
-            _signAction.emit(LoginAction.ShowError)
-        }
+        viewModelScope.launch { _signAction.emit(action) }
     }
 
     sealed class LoginAction {

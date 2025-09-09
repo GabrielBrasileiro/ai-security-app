@@ -10,7 +10,6 @@ class ValidateCredentialsUseCase {
     }
 
     private fun isValidEmail(email: String): Boolean {
-        // Very basic regex for email validation
         val emailRegex = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")
         return emailRegex.matches(email)
     }
